@@ -78,7 +78,7 @@ def main():
     
     # Footer
     print(f"  {DIM}{'─' * 60}{RESET}")
-    print(f"  {BOLD}{CYAN}📦 github.com/dipaya60/mimo-crypto-agent{RESET}")
+    print(f"  {BOLD}{CYAN}📦 github.com/dipaya60/dipaya-mimo-agent{RESET}")
     print(f"  {DIM}Model: MiMo-V2.5-Pro | Agent: Hermes Agent | Chains: 9 EVM + Solana{RESET}")
     print(f"  {DIM}100T Token Creator Incentive Program — Xiaomi MiMo{RESET}")
     print()

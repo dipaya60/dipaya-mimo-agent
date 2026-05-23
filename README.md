@@ -114,8 +114,8 @@ mimo-agent-advanced/
 
 ```bash
 # Clone & install
-git clone https://github.com/dipaya60/mimo-crypto-agent.git
-cd mimo-crypto-agent
+git clone https://github.com/dipaya60/dipaya-mimo-agent.git
+cd dipaya-mimo-agent
 pip install -r requirements.txt
 cp .env.example .env   # add your MiMo API key
 
