@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0d1117; color: #c9d1d9; font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace; padding: 30px; width: 1200px; }
+.header { background: linear-gradient(135deg, #1a1f35, #0f1923); border: 1px solid #30363d; border-radius: 12px; padding: 20px 30px; margin-bottom: 20px; text-align: center; }
+.header h1 { color: #58a6ff; font-size: 22px; }
+.header p { color: #8b949e; font-size: 13px; margin-top: 5px; }
+.section { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 18px 22px; margin-bottom: 16px; }
+.section-title { color: #f0883e; font-size: 15px; font-weight: bold; margin-bottom: 12px; border-bottom: 1px solid #21262d; padding-bottom: 8px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.module { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #0d1117; border-radius: 6px; border: 1px solid #21262d; }
+.module .icon { font-size: 18px; }
+.module .name { color: #e6edf3; font-weight: 600; font-size: 13px; min-width: 160px; }
+.module .desc { color: #8b949e; font-size: 11px; flex: 1; }
+.module .status { font-size: 11px; color: #3fb950; background: #0d2818; padding: 2px 8px; border-radius: 10px; }
+.module .status.warn { color: #d29922; background: #2d2106; }
+.metrics-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.metric { background: #0d1117; border: 1px solid #21262d; border-radius: 8px; padding: 12px; text-align: center; }
+.metric .label { color: #8b949e; font-size: 11px; text-transform: uppercase; }
+.metric .value { color: #58a6ff; font-size: 20px; font-weight: bold; margin: 5px 0; }
+.metric .source { color: #3fb950; font-size: 10px; }
+.ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.ai-module { background: #0d1117; border: 1px solid #21262d; border-radius: 8px; padding: 14px; display: flex; align-items: center; gap: 15px; }
+.ai-module .emoji { font-size: 24px; }
+.ai-module .info { flex: 1; }
+.ai-module .info .name { color: #e6edf3; font-weight: 600; font-size: 13px; }
+.ai-module .info .desc { color: #8b949e; font-size: 11px; margin-top: 2px; }
+.ai-module .signal { font-size: 18px; font-weight: bold; padding: 4px 12px; border-radius: 8px; }
+.signal.buy { color: #3fb950; background: #0d2818; }
+.signal.bull { color: #3fb950; background: #0d2818; }
+.signal.med { color: #d29922; background: #2d2106; }
+.signal.air { color: #58a6ff; background: #0c2d6b; }
+.status-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.status-item { display: flex; align-items: center; gap: 6px; font-size: 12px; }
+.dot-green { width: 8px; height: 8px; border-radius: 50%; background: #3fb950; }
+.dot-yellow { width: 8px; height: 8px; border-radius: 50%; background: #d29922; }
+.footer { text-align: center; padding: 15px; color: #8b949e; font-size: 12px; }
+.footer a { color: #58a6ff; text-decoration: none; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>🐋 MiMo Agent Advanced v2.0 — Crypto Intelligence Platform</h1>
+  <p>Powered by Xiaomi MiMo-V2.5-Pro · 100T Token Creator Incentive Program · 9 EVM Chains + Solana</p>
+</div>
+
+<div class="section">
+  <div class="section-title">📊 WHALE TRACKER — 10 Advanced Modules</div>
+  <div class="grid">
+    <div class="module"><span class="icon">🧠</span><span class="name">Smart Money Score</span><span class="desc">Wallet profiling 0-100 | Win rate + ROI + Timing</span><span class="status">● ACTIVE</span></div>
+    <div class="module"><span class="icon">💱</span><span class="name">Exchange Flow</span><span class="desc">Inflow/Outflow | Binance · Coinbase · OKX</span><span class="status">● LIVE</span></div>
+    <div class="module"><span class="icon">⚡</span><span class="name">Whale vs Retail</span><span class="desc">Divergence detection | Buy/Sell signal</span><span class="status">● ACTIVE</span></div>
+    <div class="module"><span class="icon">🧱</span><span class="name">Order Book Wall</span><span class="desc">Limit order detection | Spoofing risk</span><span class="status">● ACTIVE</span></div>
+    <div class="module"><span class="icon">🔗</span><span class="name">Cross-chain Track</span><span class="desc">ETH · SOL · BSC · ARB · BASE · OP</span><span class="status">6 CHAINS</span></div>
+    <div class="module"><span class="icon">🏦</span><span class="name">VC Wallet Track</span><span class="desc">a16z · Paradigm · Coinbase Ventures · Jump</span><span class="status">● TRACKING</span></div>
+    <div class="module"><span class="icon">📈</span><span class="name">Historical Pattern</span><span class="desc">Pre-pump / Pre-dump pattern matching</span><span class="status">● ACTIVE</span></div>
+    <div class="module"><span class="icon">🔔</span><span class="name">Alert Threshold</span><span class="desc">Custom alerts: whale > $500k buys</span><span class="status">● ARMED</span></div>
+    <div class="module"><span class="icon">📊</span><span class="name">Gini Concentration</span><span class="desc">Holder distribution | Manipulation risk</span><span class="status">● 0.72</span></div>
+    <div class="module"><span class="icon">🔥</span><span class="name">Activity Heatmap</span><span class="desc">Whale patterns by hour/day visualization</span><span class="status">● RENDERING</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">📈 MARKET METRICS — Real-time via CoinGecko API</div>
+  <div class="metrics-grid">
+    <div class="metric"><div class="label">Volume 24h</div><div class="value">$2.5B</div><div class="source">CoinGecko LIVE</div></div>
+    <div class="metric"><div class="label">Open Interest</div><div class="value">$8.75B</div><div class="source">Demo Pipeline</div></div>
+    <div class="metric"><div class="label">Funding Rate</div><div class="value">0.0125%</div><div class="source">Demo Pipeline</div></div>
+    <div class="metric"><div class="label">Long/Short</div><div class="value">1.15</div><div class="source">Demo Pipeline</div></div>
+    <div class="metric"><div class="label">Liquidations</div><div class="value">$125M/$89M</div><div class="source">Demo Pipeline</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">🤖 AI INTELLIGENCE MODULES</div>
+  <div class="ai-grid">
+    <div class="ai-module"><span class="emoji">🎯</span><div class="info"><div class="name">Market Intelligence</div><div class="desc">AI trading signals with MiMo reasoning chain</div></div><span class="signal buy">BUY 72%</span></div>
+    <div class="ai-module"><span class="emoji">💭</span><div class="info"><div class="name">Sentiment Analysis</div><div class="desc">Social media + News aggregation tracking</div></div><span class="signal bull">BULL +0.65</span></div>
+    <div class="ai-module"><span class="emoji">🔒</span><div class="info"><div class="name">Smart Contract Audit</div><div class="desc">Solidity vulnerability detection engine</div></div><span class="signal med">65/100 MED</span></div>
+    <div class="ai-module"><span class="emoji">🎁</span><div class="info"><div class="name">Airdrop Detector</div><div class="desc">Farming opportunities + eligibility check</div></div><span class="signal air">9 CHAINS</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">⚙️ SYSTEM STATUS</div>
+  <div class="status-bar">
+    <div class="status-item"><span class="dot-green"></span> MiMo-V2.5-Pro API: Connected</div>
+    <div class="status-item"><span class="dot-green"></span> CoinGecko: Live</div>
+    <div class="status-item"><span class="dot-green"></span> Whale Tracker: 10 modules</div>
+    <div class="status-item"><span class="dot-yellow"></span> VC Tracker: Demo data</div>
+  </div>
+</div>
+
+<div class="footer">
+  📦 <a href="https://github.com/dipaya60/mimo-crypto-agent">github.com/dipaya60/mimo-crypto-agent</a> · Model: MiMo-V2.5-Pro · Agent: Hermes Agent · 100T Token Creator Program
+</div>
+</body>
+</html>
