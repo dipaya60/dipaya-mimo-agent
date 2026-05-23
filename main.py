@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-MiMo Crypto Intelligence Agent — Advanced Edition
+MiMo Agent Advanced — Narrative Trade Intelligence
 Powered by Xiaomi MiMo-V2.5-Pro
 
 Usage:
@@ -16,12 +16,10 @@ Usage:
     python main.py whale ETH --alert --min-usd 500000
     python main.py analyze bitcoin
     python main.py sentiment "BTC ETH"
-    python main.py audit contract.sol
     python main.py demo
 """
 
 import sys
-import asyncio
 import argparse
 from pathlib import Path
 from rich.console import Console
@@ -35,15 +33,13 @@ from src.config import Config
 from src.whale.tracker import WhaleTracker
 from src.market.intelligence import MarketIntelligence
 from src.market.sentiment import SentimentAnalyzer
-from src.security.auditor import ContractAuditor
-from src.airdrop.detector import AirdropDetector
 
 console = Console()
 
 
 def banner():
     console.print(Panel.fit(
-        "[bold cyan]MiMo Crypto Intelligence Agent — Advanced[/bold cyan]\n"
+        "[bold cyan]MiMo Agent Advanced — Narrative Trade Intelligence[/bold cyan]\n"
         "[dim]Powered by Xiaomi MiMo-V2.5-Pro | 100T Token Program[/dim]",
         border_style="cyan"
     ))
@@ -171,24 +167,6 @@ def cmd_sentiment(args):
     console.print(f"  {r.get('narrative', '')}\n")
 
 
-def cmd_audit(args):
-    client = MiMoClient()
-    auditor = ContractAuditor(client)
-    code = Path(args.file).read_text() if args.file and Path(args.file).exists() else "pragma solidity ^0.8.0;\ncontract Demo { mapping(address => uint256) public bal; function withdraw(uint256 a) public { require(bal[msg.sender]>=a); (bool s,)=msg.sender.call{value:a}(\"\"); require(s); bal[msg.sender]-=a; } }"
-    name = Path(args.file).stem if args.file else "Demo"
-    console.print(f"\n🛡️ Auditing [bold]{name}[/bold]...\n")
-    with console.status("Scanning..."):
-        r = auditor.audit(code, name)
-    t = Table(title=f"Audit: {name}")
-    t.add_column("Metric", style="cyan"); t.add_column("Value", style="white")
-    rc = {"CRITICAL": "red", "HIGH": "red", "MEDIUM": "yellow", "LOW": "green"}.get(r.get("risk"), "white")
-    t.add_row("Risk", f"[{rc}]{r.get('risk', '?')}[/{rc}]")
-    t.add_row("Score", f"{r.get('score', 0)}/100")
-    t.add_row("Issues", str(r.get("issues", 0)))
-    console.print(t)
-    console.print(f"\n📝 {r.get('summary', '')}\n")
-
-
 def cmd_demo(args):
     banner()
     client = MiMoClient()
@@ -213,17 +191,11 @@ def cmd_demo(args):
     console.print(f"   💰 Net: ${w.get('net_flow', 0):+,.0f}")
     console.print(f"   📊 Vol: ${w.get('volume', 0):,.0f} | OI: ${w.get('oi', 0):,.0f}\n")
 
-    console.print("4️⃣ Contract Audit")
-    auditor = ContractAuditor(client)
-    with console.status("Auditing..."):
-        a = auditor.audit("pragma solidity ^0.8.0; contract X { function f() public { } }", "Simple")
-    console.print(f"   🛡️ {a.get('risk', '?')} | {a.get('score', 0)}/100\n")
-
     console.print("[bold green]✅ Demo complete![/bold green]\n")
 
 
 def main():
-    p = argparse.ArgumentParser(description="MiMo Crypto Agent — Advanced")
+    p = argparse.ArgumentParser(description="MiMo Agent Advanced — Narrative Trade Intelligence")
     sub = p.add_subparsers(dest="cmd")
 
     # Whale
@@ -252,11 +224,6 @@ def main():
     s = sub.add_parser("sentiment", help="Sentiment analysis")
     s.add_argument("query", help="Asset or topic")
     s.set_defaults(func=cmd_sentiment)
-
-    # Audit
-    au = sub.add_parser("audit", help="Contract audit")
-    au.add_argument("file", nargs="?")
-    au.set_defaults(func=cmd_audit)
 
     # Demo
     d = sub.add_parser("demo", help="Run demo")

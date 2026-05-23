@@ -1,4 +1,4 @@
-# MiMo Agent Advanced — Crypto Intelligence Platform
+# MiMo Agent Advanced — Narrative Trade Intelligence
 
 > **v2.0** — Modular autonomous crypto analysis engine  
 > Powered by **Xiaomi MiMo-V2.5-Pro** · 9 EVM Chains + Solana
@@ -13,7 +13,7 @@ Most crypto traders lose money because they lack institutional-grade intelligenc
 
 ## The Solution
 
-MiMo Agent Advanced is a **free, open-source** crypto intelligence platform that uses MiMo-V2.5-Pro's reasoning engine to analyze whale behavior across 9 EVM chains and Solana. It combines 10 whale tracking modules with AI-powered market analysis — all running locally on your machine.
+MiMo Agent Advanced is a **free, open-source** narrative trade intelligence platform that uses MiMo-V2.5-Pro's reasoning engine to decode whale behavior across 9 EVM chains and Solana. It combines 10 whale tracking modules with AI-powered market analysis — all running locally on your machine.
 
 No subscriptions. No API lock-in. Just MiMo reasoning + open data sources.
 
@@ -53,15 +53,11 @@ No subscriptions. No API lock-in. Just MiMo reasoning + open data sources.
 
 ## 📊 Market Intelligence Layer
 
-Beyond whale tracking, the platform includes 4 AI-powered analysis engines:
+Beyond whale tracking, the platform includes 2 AI-powered narrative engines:
 
 **🎯 Trading Signals** — MiMo generates buy/sell signals with full reasoning chains explaining *why*, not just *what*. Includes confidence scores and position sizing recommendations.
 
 **💭 Sentiment Analysis** — Aggregates social media (Twitter, Reddit, Telegram) and news sources. Outputs sentiment score (-1 to +1) with trend direction and influence weighting.
-
-**🔒 Contract Auditor** — Upload Solidity code, get vulnerability report. MiMo understands reentrancy, overflow, access control, and logic bugs with line-by-line severity ratings.
-
-**🎁 Airdrop Detector** — Scans 9 EVM chains + Solana for upcoming airdrops. Calculates eligibility scores based on wallet activity patterns. Suggests farming strategies.
 
 ---
 
@@ -91,12 +87,6 @@ mimo-agent-advanced/
 │   │   ├── sentiment.py       # Social + news sentiment
 │   │   ├── onchain.py         # On-chain metrics
 │   │   └── derivatives.py     # OI, Funding, Liquidations
-│   │
-│   ├── security/
-│   │   └── auditor.py         # Solidity vulnerability scanner
-│   │
-│   ├── airdrop/
-│   │   └── detector.py        # Multi-chain airdrop finder
 │   │
 │   └── utils/
 │       ├── logger.py          # Structured logging
@@ -138,9 +128,6 @@ python main.py analyze bitcoin
 
 # Sentiment
 python main.py sentiment "BTC ETH SOL"
-
-# Contract audit
-python main.py audit contract.sol
 
 # Full demo
 python main.py demo
@@ -199,10 +186,9 @@ All demo modules use realistic data generators with production-ready API integra
 This project is designed specifically to exploit MiMo's strengths:
 
 1. **Deep Reasoning** — Correlating 10 whale modules + market data simultaneously
-2. **Code Understanding** — Native Solidity comprehension for contract auditing
-3. **Structured Output** — Reliable JSON for programmatic decisions
-4. **Long Context** — 100+ whale transactions + derivatives in single analysis
-5. **Cost Efficiency** — 100T program makes heavy daily usage accessible
+2. **Structured Output** — Reliable JSON for programmatic trading decisions
+3. **Long Context** — 100+ whale transactions + derivatives in single analysis
+4. **Cost Efficiency** — 100T program makes heavy daily usage accessible
 
 Other models give you a whale tracker. MiMo gives you a **whale intelligence analyst**.
 
