@@ -3,8 +3,6 @@
 > **v2.0** — Modular autonomous crypto analysis engine  
 > Powered by **Xiaomi MiMo-V2.5-Pro** · 9 EVM Chains + Solana
 
-Built for the [100T Token Creator Incentive Program](https://100t.xiaomimimo.com/)
-
 ---
 
 ## The Problem
@@ -188,7 +186,7 @@ This project is designed specifically to exploit MiMo's strengths:
 1. **Deep Reasoning** — Correlating 10 whale modules + market data simultaneously
 2. **Structured Output** — Reliable JSON for programmatic trading decisions
 3. **Long Context** — 100+ whale transactions + derivatives in single analysis
-4. **Cost Efficiency** — 100T program makes heavy daily usage accessible
+4. **Cost Efficiency** — Free API tier makes heavy daily usage accessible
 
 Other models give you a whale tracker. MiMo gives you a **whale intelligence analyst**.
 
@@ -221,6 +219,6 @@ MIT — see [LICENSE](LICENSE)
 
 [🌐 MiMo](https://mimo.xiaomi.com) · [📚 API Docs](https://platform.xiaomimimo.com/#/docs/welcome) · [🎮 Studio](https://aistudio.xiaomimimo.com)
 
-*100T Token Creator Incentive Program*
+
 
 </div>

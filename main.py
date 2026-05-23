@@ -40,7 +40,7 @@ console = Console()
 def banner():
     console.print(Panel.fit(
         "[bold cyan]MiMo Agent Advanced — Narrative Trade Intelligence[/bold cyan]\n"
-        "[dim]Powered by Xiaomi MiMo-V2.5-Pro | 100T Token Program[/dim]",
+        "[dim]Powered by Xiaomi MiMo-V2.5-Pro [/dim]",
         border_style="cyan"
     ))
 

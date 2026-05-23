@@ -18,26 +18,37 @@ CONFIG = {
 
 async def fill_form(page: Page, dry_run: bool = False):
     print("\n📝 Filling form...\n")
-    await page.goto("https://100t.xiaomimimo.com/", wait_until="networkidle", timeout=30000)
-    await page.wait_for_timeout(2000)
+    await page.goto("https://100t.xiaomimimo.com/", wait_until="domcontentloaded", timeout=60000)
+    await page.wait_for_timeout(3000)
 
+    # Click apply button
     apply_btn = page.locator('button:has-text("立即申请")')
     if await apply_btn.count() > 0:
         await apply_btn.first.click()
-        await page.wait_for_timeout(3000)
         print("  ✅ Clicked apply")
+        # Wait for form to load — look for email input or textarea
+        try:
+            await page.wait_for_selector('input[type="email"], textarea', timeout=15000)
+            print("  ✅ Form loaded")
+        except:
+            await page.wait_for_timeout(5000)
+            print("  ⚠️ Form might not have loaded, continuing...")
 
     # Email
     email_input = page.locator('input[type="email"]')
     if await email_input.count() > 0:
         await email_input.fill(CONFIG["email"])
         print(f"  ✅ Email: {CONFIG['email']}")
+    else:
+        print("  ⚠️ Email input not found")
 
     # Description
     textarea = page.locator('textarea')
     if await textarea.count() > 0:
         await textarea.fill(CONFIG["project_description"])
         print(f"  ✅ Description: {len(CONFIG['project_description'])} chars")
+    else:
+        print("  ⚠️ Textarea not found")
 
     # AI Tools
     for tool in CONFIG["ai_tools"]:
@@ -62,7 +73,7 @@ async def fill_form(page: Page, dry_run: bool = False):
             fi = page.locator(sel)
             if await fi.count() > 0 and Path(CONFIG["screenshot_path"]).exists():
                 await fi.first.set_input_files(CONFIG["screenshot_path"])
-                await page.wait_for_timeout(1000)
+                await page.wait_for_timeout(2000)
                 print(f"  ✅ File: uploaded")
                 uploaded = True
                 break
@@ -76,6 +87,8 @@ async def fill_form(page: Page, dry_run: bool = False):
     if await url_input.count() > 0:
         await url_input.fill(CONFIG["github_link"])
         print(f"  ✅ GitHub: {CONFIG['github_link']}")
+    else:
+        print("  ⚠️ URL input not found")
 
     await page.screenshot(path="/home/ubuntu/mimo-agent-advanced/assets/form_filled.png", full_page=True)
     print(f"\n📸 Preview: assets/form_filled.png")

@@ -23,7 +23,7 @@ def main():
     print(f"{BG_DARK}{BOLD}{CYAN}")
     print("  ╔══════════════════════════════════════════════════════════════════╗")
     print("  ║        🐋  MiMo Agent Advanced v2.0  —  Crypto Intelligence    ║")
-    print("  ║        Powered by Xiaomi MiMo-V2.5-Pro | 100T Token Program   ║")
+    print("  ║        Powered by Xiaomi MiMo-V2.5-Pro   ║")
     print("  ╚══════════════════════════════════════════════════════════════════╝")
     print(f"{RESET}")
     
@@ -80,7 +80,7 @@ def main():
     print(f"  {DIM}{'─' * 60}{RESET}")
     print(f"  {BOLD}{CYAN}📦 github.com/dipaya60/dipaya-mimo-agent{RESET}")
     print(f"  {DIM}Model: MiMo-V2.5-Pro | Agent: Hermes Agent | Chains: 9 EVM + Solana{RESET}")
-    print(f"  {DIM}100T Token Creator Incentive Program — Xiaomi MiMo{RESET}")
+    print(f"  {DIM}MiMo-V2.5-Pro — Narrative Trade Intelligence{RESET}")
     print()
 
 if __name__ == "__main__":
